@@ -853,6 +853,7 @@ MonoBehaviour:
   backwardWalkSpeed: 0.5
   forwardDashSpeed: 2
   backwardDashSpeed: 1.25
+  forwardRunSpeed: 1.5
   dashCooldown: 3
   dashDuration: 0.35
   facingRight: 1
