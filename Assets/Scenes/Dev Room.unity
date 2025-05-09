@@ -791,7 +791,7 @@ MonoBehaviour:
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: MoveAction
+    - m_Name: Keyboard
       m_Id: 110ac98b-df0c-4e78-809a-bcbfe4698eb8
       m_Path: 2DVector(mode=1)
       m_Interactions: 
@@ -832,8 +832,29 @@ MonoBehaviour:
       m_Action: Move
       m_Flags: 8
     m_Flags: 0
+  DashAction:
+    m_Name: Dash
+    m_Type: 1
+    m_ExpectedControlType: Button
+    m_Id: 88fdd17a-2c69-4915-ba8b-d3700b81ac76
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 2689f90e-f47a-4a8d-95cb-7d84c05adb0d
+      m_Path: <Keyboard>/leftShift
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Dash
+      m_Flags: 0
+    m_Flags: 0
   forwardWalkSpeed: 1
   backwardWalkSpeed: 0.5
+  forwardDashSpeed: 2
+  backwardDashSpeed: 1.25
+  dashCooldown: 3
+  dashDuration: 0.35
   facingRight: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
