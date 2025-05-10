@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Inputs")]
     public InputAction MoveAction;
     public InputAction DashAction;
+    public InputAction TurnAction;
 
     [Header("Movement Stats")]
     public float forwardWalkSpeed = 1.0f;
@@ -16,9 +17,11 @@ public class PlayerController : MonoBehaviour
     public float dashCooldown = 3.0f;
     public float dashDuration = 0.35f;
     public bool facingRight = true;
+    public float turnAroundDuration = 0.5f;
 
 
     Rigidbody2D rb;
+    SpriteRenderer spriteRenderer;
     
     Vector2 moveDirection;
     Vector2 dashDirection;
@@ -26,6 +29,8 @@ public class PlayerController : MonoBehaviour
     bool shouldRun = false;
     float dashCooldownTimeLeft = 0f;
     float dashDurationTimeLeft = 0f;
+    bool shouldTurn = false;
+    float turnAroundTimeLeft = 0f;
 
 
 
@@ -33,7 +38,8 @@ public class PlayerController : MonoBehaviour
     void HandleRBMovement()
     {
         Vector2 newPosition = rb.position;
-        if (!shouldDash && !shouldRun)
+        // Handles Walking Movement
+        if (!shouldDash && !shouldRun && !shouldTurn)
         {
             if (facingRight)
             {
@@ -46,14 +52,16 @@ public class PlayerController : MonoBehaviour
                 else if (moveDirection.x <= 0) newPosition += (forwardWalkSpeed * Time.deltaTime * moveDirection);
             }
         }
-        else if (shouldDash && !shouldRun && dashDurationTimeLeft > 0f)
+        // Handles Dash Movement
+        else if (shouldDash && !shouldRun && !shouldTurn && dashDurationTimeLeft > 0f)
         {
             if (facingRight && dashDirection.x >= 0) newPosition += (forwardDashSpeed * Time.deltaTime * dashDirection);
             else if (facingRight && dashDirection.x < 0) newPosition += (backwardDashSpeed * Time.deltaTime * dashDirection);
             else if (!facingRight && dashDirection.x > 0) newPosition += (backwardDashSpeed * Time.deltaTime * dashDirection);
             else if (!facingRight && dashDirection.x <= 0) newPosition += (forwardDashSpeed * Time.deltaTime * dashDirection);
         }
-        else if (shouldRun && !shouldDash)
+        // Handles Running Movement
+        else if (shouldRun && !shouldDash && !shouldTurn)
         {
             if (facingRight && moveDirection.x > 0) newPosition += (forwardRunSpeed * Time.deltaTime * Vector2.right);
             else if (!facingRight && moveDirection.x < 0) newPosition += (forwardRunSpeed * Time.deltaTime * Vector2.left);
@@ -82,7 +90,6 @@ public class PlayerController : MonoBehaviour
         }
         else if (DashAction.IsPressed() && shouldDash == false && ((facingRight && moveDirection.x > 0) || (!facingRight && moveDirection.x < 0)))
         {
-            Debug.Log("Time To Run!");
             shouldRun = true;
         }
         else if (DashAction.WasReleasedThisFrame() || (facingRight && moveDirection.x <= 0) || (!facingRight && moveDirection.x >=0))
@@ -99,12 +106,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void HandleTurnAround()
+    {
+        if (TurnAction.WasPressedThisFrame() && turnAroundTimeLeft <= 0f && !shouldRun && !shouldDash)
+        {
+            turnAroundTimeLeft = turnAroundDuration;
+            shouldTurn = true;
+            facingRight = !facingRight;
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+        }
+        if (turnAroundTimeLeft > 0f) turnAroundTimeLeft -= Time.deltaTime;
+        else 
+        {
+            shouldTurn = false;
+        }
+
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         MoveAction.Enable();
         DashAction.Enable();
+        TurnAction.Enable();
     }
 
     // Update is called once per frame
@@ -113,6 +140,8 @@ public class PlayerController : MonoBehaviour
         moveDirection = MoveAction.ReadValue<Vector2>();
         // Logic for starting and ending a dash or run (Dash only starts if dash button is pressed and dashCooldown is over)
         DashOrRunLogic();
+        // Logic For Turning Character Around
+        HandleTurnAround();
 
     }
 

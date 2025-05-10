@@ -849,14 +849,32 @@ MonoBehaviour:
       m_Action: Dash
       m_Flags: 0
     m_Flags: 0
+  TurnAction:
+    m_Name: Turn
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8158ccc4-17b3-4c58-b77d-5abb921f922d
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 41e67cd6-8bc3-4817-8a3c-3d0f25040347
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Turn
+      m_Flags: 0
+    m_Flags: 0
   forwardWalkSpeed: 1
   backwardWalkSpeed: 0.5
-  forwardDashSpeed: 2
-  backwardDashSpeed: 1.25
+  forwardDashSpeed: 3
+  backwardDashSpeed: 1.5
   forwardRunSpeed: 1.5
   dashCooldown: 3
   dashDuration: 0.35
   facingRight: 1
+  turnAroundDuration: 0.25
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
