@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 2110187731}
   - component: {fileID: 2110187730}
   - component: {fileID: 2110187734}
+  - component: {fileID: 2110187735}
   - component: {fileID: 2110187732}
   - component: {fileID: 2110187733}
   m_Layer: 0
@@ -875,6 +876,19 @@ MonoBehaviour:
   dashDuration: 0.35
   facingRight: 1
   turnAroundDuration: 0.25
+--- !u!114 &2110187735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110187729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9c9af61249d4ee89d81bdb2a7ac65b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventory: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
