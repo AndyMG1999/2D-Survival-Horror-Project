@@ -33,6 +33,18 @@ public class PlayerController : MonoBehaviour
     float turnAroundTimeLeft = 0f;
 
 
+    public void EnableMovementControls () 
+    {
+        MoveAction.Enable();
+        DashAction.Enable();
+        TurnAction.Enable();
+    }
+    public void DisableMovementControls () 
+    {
+        MoveAction.Disable();
+        DashAction.Disable();
+        TurnAction.Disable();
+    }
 
     // Function in charge of player movement
     void HandleRBMovement()
@@ -129,9 +141,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        MoveAction.Enable();
-        DashAction.Enable();
-        TurnAction.Enable();
+        EnableMovementControls();
     }
 
     // Update is called once per frame

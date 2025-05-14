@@ -1,0 +1,27 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="MenuContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.5); visibility: visible; display: flex;">
+        <ui:VisualElement name="MenuNavbar" enabled="true" style="flex-grow: 1; height: 25%; flex-direction: row; flex-wrap: nowrap; justify-content: center; align-items: stretch; align-self: auto;">
+            <ui:Button text="Map" name="MapButton" style="opacity: 1; visibility: visible; background-color: rgba(188, 188, 188, 0); color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); font-size: 50%; -unity-font-style: normal; width: 30%; flex-direction: column; left: auto;" />
+            <ui:Button text="Items" name="ItemButton" style="opacity: 1; visibility: visible; background-color: rgba(188, 188, 188, 0); color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); font-size: 50%; -unity-font-style: bold; width: 30%; flex-direction: column; left: auto;" />
+            <ui:Button text="Notes" name="NotesButton" style="opacity: 1; visibility: visible; background-color: rgba(188, 188, 188, 0); color: rgb(255, 255, 255); -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); font-size: 50%; -unity-font-style: normal; width: 30%; flex-direction: column; left: auto;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="ItemsMenu" enabled="true" style="flex-grow: 1; height: 75%; flex-direction: row; display: flex;">
+            <ui:VisualElement name="ItemDetails" style="flex-grow: 1; width: 60%;">
+                <ui:VisualElement name="ItemIconContainer" style="flex-grow: 1; height: auto; align-items: center; justify-content: center;">
+                    <ui:VisualElement name="ItemIcon" style="flex-grow: 1; width: 50%; -unity-text-align: upper-left; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; background-image: none; align-items: center; background-size: 90% 90%;" />
+                </ui:VisualElement>
+                <ui:Label text="Item Title" name="ItemTitleLabel" style="-unity-font-style: bold; font-size: 35px; color: rgb(255, 255, 255); -unity-text-align: middle-center; white-space: normal; height: 20%;" />
+                <ui:Label text="This is a text description for where the item description will go." name="ItemDescriptionLabel" style="font-size: 25px; color: rgb(255, 255, 255); white-space: normal; -unity-text-outline-color: rgba(255, 255, 255, 0); -unity-font-style: italic; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; padding-left: 6px; padding-right: 6px; height: 30%; -unity-text-align: upper-left;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="ItemListAndStatusContainer" style="flex-grow: 1; width: 40%;">
+                <ui:MultiColumnListView name="ItemsList" style="height: 60%; width: auto;">
+                    <ui:Columns />
+                </ui:MultiColumnListView>
+                <ui:VisualElement name="StatusContainer" style="flex-grow: 1; justify-content: center;">
+                    <ui:Label text="STATUS:" name="StatusTitleLabel" style="font-size: 25px; -unity-font-style: bold; color: rgb(255, 255, 255); -unity-text-align: upper-center;" />
+                    <ui:Label text="ALL GOOD!" name="StatusLabel" style="font-size: 40px; -unity-font-style: bold; color: rgb(38, 243, 216); -unity-text-align: upper-center;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
