@@ -812,7 +812,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1980873379}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999999
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2219,6 +2219,7 @@ MonoBehaviour:
   mapMenuGameObject: {fileID: 846007635}
   itemsMenuGameObject: {fileID: 923069821}
   notesMenuGameObject: {fileID: 1122417437}
+  itemButton: {fileID: 2033694262}
   mapButtonText: {fileID: 1019784605}
   itemsButtonText: {fileID: 1541902677}
   notesButtonText: {fileID: 1208861114}
@@ -2938,8 +2939,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1136714073}
   m_HandleRect: {fileID: 1136714072}
   m_Direction: 2
-  m_Value: 1.0000045
-  m_Size: 0.39486828
+  m_Value: 1.0000046
+  m_Size: 0.3948683
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

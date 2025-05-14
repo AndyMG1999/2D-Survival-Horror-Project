@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerMenuCanvasController : MonoBehaviour
@@ -15,6 +16,7 @@ public class PlayerMenuCanvasController : MonoBehaviour
     public GameObject notesMenuGameObject;
 
     [Header("Player Menu Buttons")]
+    public Button itemButton;
     public TextMeshProUGUI mapButtonText;
     public TextMeshProUGUI itemsButtonText;
     public TextMeshProUGUI notesButtonText;
@@ -65,6 +67,8 @@ public class PlayerMenuCanvasController : MonoBehaviour
         notesButtonText.color = buttonNotSelectedColor;
         
         playerMenuGameObject.SetActive(true);
+        // Sets Item Button as selected so controller users can navigate without a mouse
+        EventSystem.current.SetSelectedGameObject(itemButton.gameObject);
     }
 
     public void OpenNotesMenu()
