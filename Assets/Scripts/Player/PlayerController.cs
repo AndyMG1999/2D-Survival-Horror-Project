@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
+    PlayerAimController playerAimController;
     
     Vector2 moveDirection;
     Vector2 dashDirection;
@@ -45,6 +46,8 @@ public class PlayerController : MonoBehaviour
         DashAction.Disable();
         TurnAction.Disable();
     }
+
+    public bool NoMovementsStarted () { return !shouldDash &&  !shouldRun && !shouldTurn; }
 
     // Function in charge of player movement
     void HandleRBMovement()
@@ -140,6 +143,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerAimController = GetComponent<PlayerAimController>();
 
         EnableMovementControls();
     }
