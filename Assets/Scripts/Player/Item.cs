@@ -15,5 +15,6 @@ public class Item
     public string itemName="";
     public string itemDescription="";
     public int itemAmount=1;
+    public int currentAmmo=0;
     public GameObject gameObject;
 }

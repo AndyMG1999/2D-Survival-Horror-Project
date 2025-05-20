@@ -9,7 +9,7 @@ public class PlayerProjectileBehavior : MonoBehaviour
     public float launchForce = 1f; // The force to apply to the projectile
     public float projectileLifespan = 2f;
     public HorizontalProjectileDirections horizontalProjectileDirection = HorizontalProjectileDirections.Right;
-    public VerticalProjectileDirections verticalProjectileDirections = VerticalProjectileDirections.None;
+    public VerticalProjectileDirections verticalProjectileDirection = VerticalProjectileDirections.None;
     public float projectileVerticalSpeed = 1f;
 
     [Header("Projectile References")]
@@ -28,8 +28,8 @@ public class PlayerProjectileBehavior : MonoBehaviour
             launchDirection = Vector2.left;
             projectileGameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
-        if ((verticalProjectileDirections == VerticalProjectileDirections.Up && horizontalProjectileDirection == HorizontalProjectileDirections.Right) || (verticalProjectileDirections == VerticalProjectileDirections.Down && horizontalProjectileDirection == HorizontalProjectileDirections.Left)) projectileGameObject.transform.rotation = Quaternion.Euler(0, 0, -45);
-        else if ((verticalProjectileDirections == VerticalProjectileDirections.Down && horizontalProjectileDirection == HorizontalProjectileDirections.Right) || (verticalProjectileDirections == VerticalProjectileDirections.Up && horizontalProjectileDirection == HorizontalProjectileDirections.Left)) projectileGameObject.transform.rotation = Quaternion.Euler(0, 0, 45);
+        if ((verticalProjectileDirection == VerticalProjectileDirections.Up && horizontalProjectileDirection == HorizontalProjectileDirections.Right) || (verticalProjectileDirection == VerticalProjectileDirections.Down && horizontalProjectileDirection == HorizontalProjectileDirections.Left)) projectileGameObject.transform.rotation = Quaternion.Euler(0, 0, -30);
+        else if ((verticalProjectileDirection == VerticalProjectileDirections.Down && horizontalProjectileDirection == HorizontalProjectileDirections.Right) || (verticalProjectileDirection == VerticalProjectileDirections.Up && horizontalProjectileDirection == HorizontalProjectileDirections.Left)) projectileGameObject.transform.rotation = Quaternion.Euler(0, 0, 30);
 
     }
 
@@ -41,7 +41,7 @@ public class PlayerProjectileBehavior : MonoBehaviour
 
     void ApplyProjectileVerticalSpeed ()
     {
-        if (verticalProjectileDirections == VerticalProjectileDirections.Up || verticalProjectileDirections == VerticalProjectileDirections.Down) projectileGameObject.transform.position += new Vector3(0, projectileVerticalSpeed * Time.deltaTime);
+        if (verticalProjectileDirection == VerticalProjectileDirections.Up || verticalProjectileDirection == VerticalProjectileDirections.Down) projectileGameObject.transform.position += new Vector3(0, projectileVerticalSpeed * Time.deltaTime);
         // Logic that simulates hitting floor
         if (projectileGameObject.transform.position.y < projectileRangeCheckGameObject.transform.position.y) DestroyProjectile();
     }

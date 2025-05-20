@@ -13,6 +13,8 @@ public class PlayerAimController : MonoBehaviour
 
     bool shouldAim = false;
 
+    public bool GetShouldAim(){ return shouldAim; }
+
     public void EnableAimControls()
     {
         AimUpOrDownAction.Enable();
@@ -44,8 +46,6 @@ public class PlayerAimController : MonoBehaviour
         {
             shouldAim = false;
         }
-
-        Debug.Log("Aim Up or Down Input: " + AimUpOrDownAction.ReadValue<float>());
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
