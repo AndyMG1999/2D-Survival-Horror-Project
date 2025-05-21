@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
     PlayerAimController playerAimController;
+    PlayerWeaponHolderController playerWeaponHolderController;
     
     Vector2 moveDirection;
     Vector2 dashDirection;
@@ -125,10 +126,19 @@ public class PlayerController : MonoBehaviour
     {
         if (TurnAction.WasPressedThisFrame() && turnAroundTimeLeft <= 0f && !shouldRun && !shouldDash)
         {
+            // Starts timer for turning around
             turnAroundTimeLeft = turnAroundDuration;
             shouldTurn = true;
+            // Sets facingRight, flipX, and scale to opposite
             facingRight = !facingRight;
             spriteRenderer.flipX = !spriteRenderer.flipX;
+            
+            if(playerWeaponHolderController)
+            {
+                Vector3 newScale = playerWeaponHolderController.transform.localScale;
+                newScale.x *= -1;
+                playerWeaponHolderController.transform.localScale = newScale;
+            }
         }
         if (turnAroundTimeLeft > 0f) turnAroundTimeLeft -= Time.deltaTime;
         else 
@@ -144,6 +154,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerAimController = GetComponent<PlayerAimController>();
+        playerWeaponHolderController = GetComponentInChildren<PlayerWeaponHolderController>();
 
         EnableMovementControls();
     }
