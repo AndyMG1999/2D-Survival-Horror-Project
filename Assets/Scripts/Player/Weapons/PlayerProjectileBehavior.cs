@@ -28,8 +28,8 @@ public class PlayerProjectileBehavior : MonoBehaviour
             launchDirection = Vector2.left;
             projectileGameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
-        if ((verticalProjectileDirection == VerticalProjectileDirections.Up && horizontalProjectileDirection == HorizontalProjectileDirections.Right) || (verticalProjectileDirection == VerticalProjectileDirections.Down && horizontalProjectileDirection == HorizontalProjectileDirections.Left)) projectileGameObject.transform.rotation = Quaternion.Euler(0, 0, -30);
-        else if ((verticalProjectileDirection == VerticalProjectileDirections.Down && horizontalProjectileDirection == HorizontalProjectileDirections.Right) || (verticalProjectileDirection == VerticalProjectileDirections.Up && horizontalProjectileDirection == HorizontalProjectileDirections.Left)) projectileGameObject.transform.rotation = Quaternion.Euler(0, 0, 30);
+        if ((verticalProjectileDirection == VerticalProjectileDirections.Up && horizontalProjectileDirection == HorizontalProjectileDirections.Right) || (verticalProjectileDirection == VerticalProjectileDirections.Down && horizontalProjectileDirection == HorizontalProjectileDirections.Left)) projectileGameObject.transform.rotation = Quaternion.Euler(0, 0, -60);
+        else if ((verticalProjectileDirection == VerticalProjectileDirections.Down && horizontalProjectileDirection == HorizontalProjectileDirections.Right) || (verticalProjectileDirection == VerticalProjectileDirections.Up && horizontalProjectileDirection == HorizontalProjectileDirections.Left)) projectileGameObject.transform.rotation = Quaternion.Euler(0, 0, 60);
 
     }
 
