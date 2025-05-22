@@ -90,7 +90,6 @@ public class PlayerController : MonoBehaviour
     {
         if (DashAction.WasPressedThisFrame() && dashCooldownTimeLeft <= 0f)
         {
-            Debug.Log("Time to Dash!");
             // Sets bool to true and gets dashDirection from move inputs so system knows where to dash
             shouldDash = true;
             dashDirection = moveDirection;

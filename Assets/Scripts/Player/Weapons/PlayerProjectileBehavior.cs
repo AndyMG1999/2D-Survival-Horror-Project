@@ -15,6 +15,8 @@ public class PlayerProjectileBehavior : MonoBehaviour
     [Header("Projectile References")]
     public GameObject projectileGameObject;
     public GameObject projectileRangeCheckGameObject;
+    public BoxCollider2D projectileTrigger;
+    public BoxCollider2D rangeCheckerTrigger;
 
     Rigidbody2D rb;
     Vector2 launchDirection = Vector2.right; // Default direction (to the right)
@@ -28,8 +30,8 @@ public class PlayerProjectileBehavior : MonoBehaviour
             launchDirection = Vector2.left;
             projectileGameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
-        if ((verticalProjectileDirection == VerticalProjectileDirections.Up && horizontalProjectileDirection == HorizontalProjectileDirections.Right) || (verticalProjectileDirection == VerticalProjectileDirections.Down && horizontalProjectileDirection == HorizontalProjectileDirections.Left)) projectileGameObject.transform.rotation = Quaternion.Euler(0, 0, -60);
-        else if ((verticalProjectileDirection == VerticalProjectileDirections.Down && horizontalProjectileDirection == HorizontalProjectileDirections.Right) || (verticalProjectileDirection == VerticalProjectileDirections.Up && horizontalProjectileDirection == HorizontalProjectileDirections.Left)) projectileGameObject.transform.rotation = Quaternion.Euler(0, 0, 60);
+        if ((verticalProjectileDirection == VerticalProjectileDirections.Up && horizontalProjectileDirection == HorizontalProjectileDirections.Right) || (verticalProjectileDirection == VerticalProjectileDirections.Down && horizontalProjectileDirection == HorizontalProjectileDirections.Left)) projectileGameObject.transform.rotation = Quaternion.Euler(0, 0, 15);
+        else if ((verticalProjectileDirection == VerticalProjectileDirections.Down && horizontalProjectileDirection == HorizontalProjectileDirections.Right) || (verticalProjectileDirection == VerticalProjectileDirections.Up && horizontalProjectileDirection == HorizontalProjectileDirections.Left)) projectileGameObject.transform.rotation = Quaternion.Euler(0, 0, -15);
 
     }
 

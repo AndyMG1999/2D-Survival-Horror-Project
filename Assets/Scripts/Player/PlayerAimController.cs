@@ -37,7 +37,6 @@ public class PlayerAimController : MonoBehaviour
         }
         else if (AimAction.WasReleasedThisFrame() && shouldAim)
         {
-            Debug.Log("No Longer Aiming!");
             shouldAim = false;
             playerController.EnableMovementControls();
         }

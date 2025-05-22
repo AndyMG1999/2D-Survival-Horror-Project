@@ -2815,6 +2815,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1569560025}
   - component: {fileID: 1569560026}
+  - component: {fileID: 1569560027}
   m_Layer: 11
   m_Name: Enemy Range Check
   m_TagString: Untagged
@@ -2883,6 +2884,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.6817014, y: 0.22921968}
   m_EdgeRadius: 0
+--- !u!114 &1569560027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569560024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3b9ae039dd34c58ab24cc8fafb5c9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1627502993
 GameObject:
   m_ObjectHideFlags: 0
