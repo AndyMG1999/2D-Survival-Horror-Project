@@ -81,6 +81,8 @@ MonoBehaviour:
   projectileVerticalSpeed: 1
   projectileGameObject: {fileID: 3287948023621410929}
   projectileRangeCheckGameObject: {fileID: 4663772382738128187}
+  projectileTrigger: {fileID: 0}
+  rangeCheckerTrigger: {fileID: 0}
 --- !u!1 &3287948023621410929
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +283,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 1.07}
+  m_Offset: {x: 0, y: 1.0922974}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -291,5 +293,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.4775108, y: 0.18874514}
+  m_Size: {x: 1.4775108, y: 0.1441505}
   m_EdgeRadius: 0

@@ -3,18 +3,21 @@ using UnityEngine;
 
 public class RangeCheckerController : MonoBehaviour
 {
-    List<string> gameObjectsInRange;
+    public List<int> GameObjectsInRange {get; private set;} = new List<int>();
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
         // Gets root parent in case hitbox and range checker are on different objects
         // but share same root parent
         GameObject rootParent = otherCollider.transform.root.gameObject;
-        Debug.Log("Game Object in Range!: "+rootParent.name);
+        int rootParentID = rootParent.GetInstanceID();
+        GameObjectsInRange.Add(rootParentID);
     }
+
     void OnTriggerExit2D(Collider2D otherCollider)
     {
         GameObject rootParent = otherCollider.transform.root.gameObject;
-        Debug.Log("Game Object No Longer in Range!: "+rootParent.name);
+        int rootParentID = rootParent.GetInstanceID();
+        GameObjectsInRange.Remove(rootParentID);
     }
 }
 
