@@ -3539,6 +3539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1917cb861ba984514a0f6a4864245c41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteToFlash: {fileID: 1156670001}
+  flashDuration: 0.05
   rangeCheckerController: {fileID: 1569560027}
 --- !u!1 &2033694260
 GameObject:
