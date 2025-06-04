@@ -36,9 +36,10 @@ public class HurtboxController : MonoBehaviour
     {
         // Save the original color
         Color originalColor = spriteToFlash.color;
-
+        Color flashColor = Color.red;
+        flashColor.a = 0.7f;
         // Change the color to white
-        spriteToFlash.color = Color.red;
+        spriteToFlash.color = flashColor;
 
         // Wait for the flash duration
         yield return new WaitForSeconds(flashDuration);

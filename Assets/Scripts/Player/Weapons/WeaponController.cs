@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum FiringTypes {Semi, Fully}
+public enum FiringTypes {Semi, Full_Auto}
 public enum ReloadTypes {Clip, Round}
 public class WeaponController : MonoBehaviour
 {
