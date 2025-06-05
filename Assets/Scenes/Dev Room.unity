@@ -853,7 +853,7 @@ MonoBehaviour:
   projectile: {fileID: 618737525028840009, guid: 52f56967fe96c44e9ae8f9dcf09e4e2c, type: 3}
   projectileSpawnLocation: {fileID: 1309056}
   projectileSpeed: 14
-  projectileLifeSpan: 2
+  projectileLifeSpan: 1
   projectileVerticalSpeed: 4
 --- !u!1 &619394800
 GameObject:

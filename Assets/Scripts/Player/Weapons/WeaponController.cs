@@ -28,23 +28,25 @@ public class WeaponController : MonoBehaviour
     {
         float aimUpOrDownValue = playerAimController.AimUpOrDownAction.ReadValue<float>();
         bool playerShouldAim = playerAimController.GetShouldAim();
-        if(firingType == FiringTypes.Semi)
+        bool shootInputPressed = false;
+        
+        if(firingType == FiringTypes.Semi) shootInputPressed = playerAimController.ShootAction.WasPressedThisFrame();
+        else if(firingType == FiringTypes.Full_Auto) shootInputPressed = playerAimController.ShootAction.IsPressed();
+        
+        if(playerShouldAim && Mathf.Approximately(aimUpOrDownValue,0) && shootInputPressed && firingRateTimeLeft <= 0)
         {
-            if(playerShouldAim && Mathf.Approximately(aimUpOrDownValue,0) && playerAimController.ShootAction.WasPressedThisFrame() && firingRateTimeLeft <= 0)
-            {
-                Shoot();
-                firingRateTimeLeft = firingRate;
-            }
-            else if(playerShouldAim && Mathf.Approximately(aimUpOrDownValue,1) && playerAimController.ShootAction.WasPressedThisFrame() && firingRateTimeLeft <= 0)
-            {
-                ShootUp();
-                firingRateTimeLeft = firingRate;
-            }
-            else if(playerShouldAim && Mathf.Approximately(aimUpOrDownValue,-1) && playerAimController.ShootAction.WasPressedThisFrame() && firingRateTimeLeft <= 0)
-            {
-                ShootDown();
-                firingRateTimeLeft = firingRate;
-            }
+            Shoot();
+            firingRateTimeLeft = firingRate;
+        }
+        else if(playerShouldAim && Mathf.Approximately(aimUpOrDownValue,1) && shootInputPressed && firingRateTimeLeft <= 0)
+        {
+            ShootUp();
+            firingRateTimeLeft = firingRate;
+        }
+        else if(playerShouldAim && Mathf.Approximately(aimUpOrDownValue,-1) && shootInputPressed && firingRateTimeLeft <= 0)
+        {
+            ShootDown();
+            firingRateTimeLeft = firingRate;
         }
     }
 
